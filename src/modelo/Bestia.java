@@ -4,7 +4,7 @@ public class Bestia {
     private int Pasos;
     private int UbicacionX;
     private int UbicacionY;
-    private int Identificador = 1;
+    private int Identificador;
     private int Habilidad1, Habilidad2 , Habilidad3;	
 
     public void Bestia_Asesino(int pUbicacionX,int pUbicacionY){
