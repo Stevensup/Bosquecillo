@@ -1,23 +1,40 @@
 package vista;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.BoxLayout;
+import java.awt.BorderLayout;
+
 import javax.swing.JButton; 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+import javax.swing.plaf.ColorUIResource;
 
 public class Interfaz extends JFrame implements ActionListener {
 //    public Interfaz(Controlador pControlador) {
-    JButton btnEmpezar,btnPuntosDeControl,btnPasosRestantes,btnHabilidades;
-    public Interfaz() {
-    /**
+        /**
 	* Atributos
 	*/
+    JButton btnEmpezar,btnPuntosDeControl,btnPasosRestantes,btnHabilidades;
+    private final ColorUIResource colorFondoTablero = new ColorUIResource(38, 70, 83);
+    private final ColorUIResource colorFondoStats = new ColorUIResource(231, 111, 81);
+    private final ColorUIResource colorLetraBotones = new ColorUIResource(5, 94, 112);
+    private final ColorUIResource colorFondoBotones = new ColorUIResource(152, 215, 194);
+    private final ColorUIResource colorCasillas = new ColorUIResource(42, 157, 143);
+    public static int ancho=10;
+    public static int alto=ancho;
+
+
+    public Interfaz() {
+
 
         // Especificación de los atributos de la ventana
         getContentPane().setLayout(new GridLayout(1,2));
+        //getContentPane().setLayout(new BorderLayout());
         setTitle("Bosquecillo"); 
         setSize(850,600); 
         setLocationRelativeTo(null); 
@@ -28,35 +45,55 @@ public class Interfaz extends JFrame implements ActionListener {
         //controlador = pControlador;
 
         //Inicializacion de paneles
-        add(crearTablero());
-        add(crearPanelStats());
+        add(crearTablero(ancho,alto));
+        add(crearPanelLateral());
         setVisible(true);
         
     }
-    public JPanel crearTablero(){
+    public JPanel crearTablero(int pAncho, int pAlto){
         JPanel panelTablero = new JPanel(); 
         panelTablero.setBorder(new TitledBorder("Tablero"));
+        panelTablero.setLayout(new GridLayout(pAncho,pAlto));
+        panelTablero.setBackground(colorFondoTablero);
 
+        for (int i = 0; i < ancho; i++) {
+            ArrayList<Casilla> ArregloPanelesCuadrados=new ArrayList<Casilla>();
+            for (int j = 0; j < alto; j++) {
+                Casilla cuadrado = new Casilla(colorCasillas,"test");
+                ArregloPanelesCuadrados.add(cuadrado);
+                panelTablero.add(cuadrado);
+            }
+            
+        }
         return panelTablero;
 }
-
+    public JPanel crearPanelLateral(){
+        JPanel panelLateral = new JPanel(); 
+        panelLateral.setBorder(new TitledBorder("Tablero"));
+        panelLateral.setLayout(new GridLayout(2,1));
+        panelLateral.add(crearPanelStats());
+        panelLateral.add(crearPanelExtra());
+        return panelLateral;
+    }
     public JPanel crearPanelStats(){
         JPanel panelStats = new JPanel(); 
-        panelStats.setLayout(new BoxLayout(panelStats, BoxLayout.Y_AXIS));
+        //panelStats.setLayout(new BoxLayout(panelStats, BoxLayout.Y_AXIS));
         panelStats.setBorder(new TitledBorder("Game Stats"));
         btnEmpezar = new JButton("Empezar");
+        btnEmpezar.setForeground(colorLetraBotones);
         btnEmpezar.addActionListener(this);
         btnEmpezar.setActionCommand(btnEmpezar.getText());
 
-        btnPuntosDeControl = new JButton("PuntosDeControl");
+        btnPuntosDeControl = new JButton("Pausar");
+        btnPuntosDeControl.setForeground(colorLetraBotones);
         btnPuntosDeControl.addActionListener(this);
         btnPuntosDeControl.setActionCommand(btnPuntosDeControl.getText());
 
-        btnHabilidades = new JButton("HabilidadesDeControl");
+        btnHabilidades = new JButton("Guardar");
         btnHabilidades.addActionListener(this);
         btnHabilidades.setActionCommand(btnHabilidades.getText());
 
-        btnPasosRestantes = new JButton("PasosRestantesDeControl");
+        btnPasosRestantes = new JButton("Cargar");
         btnPasosRestantes.addActionListener(this);
         btnPasosRestantes.setActionCommand(btnPasosRestantes.getText());
 
@@ -65,9 +102,42 @@ public class Interfaz extends JFrame implements ActionListener {
         panelStats.add(btnPuntosDeControl);
         panelStats.add(btnHabilidades);
         panelStats.add(btnPasosRestantes);
+        panelStats.setBackground(colorFondoStats);
        
         return panelStats;
 }
+public JPanel crearPanelExtra(){
+    JPanel panelExtra = new JPanel(); 
+    //panelExtra.setLayout(new BoxLayout(panelExtra, BoxLayout.Y_AXIS));
+    panelExtra.setBorder(new TitledBorder("Game Extra"));
+    btnEmpezar = new JButton("Empezar");
+    btnEmpezar.setForeground(colorLetraBotones);
+    btnEmpezar.addActionListener(this);
+    btnEmpezar.setActionCommand(btnEmpezar.getText());
+
+    btnPuntosDeControl = new JButton("Pausar");
+    btnPuntosDeControl.setForeground(colorLetraBotones);
+    btnPuntosDeControl.addActionListener(this);
+    btnPuntosDeControl.setActionCommand(btnPuntosDeControl.getText());
+
+    btnHabilidades = new JButton("Guardar");
+    btnHabilidades.addActionListener(this);
+    btnHabilidades.setActionCommand(btnHabilidades.getText());
+
+    btnPasosRestantes = new JButton("Cargar");
+    btnPasosRestantes.addActionListener(this);
+    btnPasosRestantes.setActionCommand(btnPasosRestantes.getText());
+
+
+    panelExtra.add(btnEmpezar);
+    panelExtra.add(btnPuntosDeControl);
+    panelExtra.add(btnHabilidades);
+    panelExtra.add(btnPasosRestantes);
+    panelExtra.setBackground(colorFondoBotones);
+   
+    return panelExtra;
+}
+
     /**
      * Conecta los botones con la lógica del controlador
       */
