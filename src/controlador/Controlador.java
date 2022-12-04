@@ -5,11 +5,13 @@ import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Laberinto;
+import vista.Interfaz;
 
 /**
 * Atributos
 */
 //private Laberinto Laberinto;
+
 
 public class Controlador extends KeyAdapter implements ActionListener{
 
@@ -32,6 +34,14 @@ public class Controlador extends KeyAdapter implements ActionListener{
 			break;
 
 		}
+	
+	}
+
+	public void controlador(int pAltura, int pAncho ){
+		Interfaz gui = new Interfaz();
+		String dificultad = gui.leerString("ingrese dificultad: facil o dificil");
+		Laberinto mapa = new Laberinto(pAltura,pAncho,dificultad);
+		gui.mostrarMensaje(mapa.validadorTamaño());
 		
 	}
     @Override
