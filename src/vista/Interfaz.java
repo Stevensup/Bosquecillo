@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+
 import java.awt.BorderLayout;
 
 import javax.swing.JButton; 
@@ -36,7 +38,7 @@ public class Interfaz extends JFrame implements ActionListener {
         getContentPane().setLayout(new GridLayout(1,2));
         //getContentPane().setLayout(new BorderLayout());
         setTitle("Bosquecillo"); 
-        setSize(850,600); 
+        setSize(1200,800); 
         setLocationRelativeTo(null); 
         setResizable(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE); 
@@ -57,9 +59,17 @@ public class Interfaz extends JFrame implements ActionListener {
         panelTablero.setBackground(colorFondoTablero);
 
         for (int i = 0; i < ancho; i++) {
+            String tipoIcono="Muro";
             ArrayList<Casilla> ArregloPanelesCuadrados=new ArrayList<Casilla>();
             for (int j = 0; j < alto; j++) {
-                Casilla cuadrado = new Casilla(colorCasillas,"test");
+                if (j%2==0) 
+                {
+                    tipoIcono="Piso";
+                    if(i%2==0)
+                        tipoIcono="Bosquecillo";
+                }
+                Casilla cuadrado = new Casilla(colorCasillas,tipoIcono);
+                tipoIcono="Muro";
                 ArregloPanelesCuadrados.add(cuadrado);
                 panelTablero.add(cuadrado);
             }
@@ -80,6 +90,8 @@ public class Interfaz extends JFrame implements ActionListener {
         //panelStats.setLayout(new BoxLayout(panelStats, BoxLayout.Y_AXIS));
         panelStats.setBorder(new TitledBorder("Game Stats"));
         btnEmpezar = new JButton("Empezar");
+        ImageIcon icon=new ImageIcon("resources/piso.png");
+        btnEmpezar.setIcon(icon);
         btnEmpezar.setForeground(colorLetraBotones);
         btnEmpezar.addActionListener(this);
         btnEmpezar.setActionCommand(btnEmpezar.getText());
