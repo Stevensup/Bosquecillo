@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Laberinto;
 import vista.Interfaz;
+import modelo.Carrito;
 
 /**
 * Atributos
@@ -42,8 +43,34 @@ public class Controlador extends KeyAdapter implements ActionListener{
 		String dificultad = gui.leerString("ingrese dificultad: facil o dificil");
 		Laberinto mapa = new Laberinto(pAltura,pAncho,dificultad);
 		gui.mostrarMensaje(mapa.validadorTamaño());
-		
+		Carrito carro = new Carrito();
 	}
+
+	public void validadorUbicacion() {
+		//posicion bosquecillo para validar
+		  if (mapa[Carrito.ubicacionXCarrito+1][Carrito.ubicacionYCarrito+1]==4) {
+			  Carrito.PasosUsados=Carrito.PasosUsados-(Carrito.PasosUsados*0.05);
+		  }
+		  else if (mapa[Carrito.ubicacionXCarrito-1][Carrito.ubicacionYCarrito-1]==4) {
+			  Carrito.PasosUsados=Carrito.PasosUsados-(Carrito.PasosUsados*0.05);
+		  }
+		  else if (mapa[Carrito.ubicacionXCarrito+1][Carrito.ubicacionYCarrito+1]==3) {
+			  Carrito.PasosUsados=Carrito.PasosUsados-Carrito.PasosUsados;
+		  }
+		  else if (mapa[Carrito.ubicacionXCarrito-1][Carrito.ubicacionYCarrito-1]==3) {
+			  Carrito.PasosUsados=Carrito.PasosUsados-Carrito.PasosUsados;
+		  }
+		  else if (mapa[Carrito.ubicacionXCarrito+1][Carrito.ubicacionYCarrito+1]==5) {
+			  Carrito.PasosUsados=Carrito.PasosUsados;
+		  }
+		  else if (mapa[Carrito.ubicacionXCarrito-1][Carrito.ubicacionYCarrito-1]==5) {
+			  Carrito.PasosUsados=get.PasosUsados;
+		  }
+		 }
+	}
+	}
+	
+
     @Override
     public void actionPerformed(ActionEvent e) {
         
