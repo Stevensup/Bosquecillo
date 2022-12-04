@@ -57,7 +57,7 @@ public class Interfaz extends JFrame implements ActionListener {
   {
 
   }
-  public void crearInterfaz(int pAncho, int pAlto) {
+  public void crearInterfaz(int pAncho, int pAlto, int[][] pLaberinto) {
     // Especificación de los atributos de la ventana
     getContentPane().setLayout(new GridLayout(1, 2));
     setTitle("Bosquecillo");
@@ -72,7 +72,7 @@ public class Interfaz extends JFrame implements ActionListener {
     //controlador = pControlador;
 
     //Inicializacion de paneles
-    add(crearPanelTablero(pAncho, pAlto));
+    add(crearPanelTablero(pAncho, pAlto,pLaberinto));
     add(crearPanelLateral());
     setVisible(true);
   }
@@ -82,7 +82,7 @@ public class Interfaz extends JFrame implements ActionListener {
    * @param altura del tablero
    */
 
-  public JPanel crearPanelTablero(int pAncho, int pAlto) {
+  public JPanel crearPanelTablero(int pAncho, int pAlto,int [][] pLaberinto) {
     JPanel panelTablero = new JPanel();
     panelTablero.setBorder(new TitledBorder("Tablero"));
     panelTablero.setLayout(new GridLayout(pAncho, pAlto));
@@ -92,12 +92,24 @@ public class Interfaz extends JFrame implements ActionListener {
       String tipoIcono = "Muro";
       ArrayList<Casilla> ArregloPanelesCuadrados = new ArrayList<Casilla>();
       for (int j = 0; j < pAlto; j++) {
-        if (j % 2 == 0) {
+        if (pLaberinto[i][j]==0) 
           tipoIcono = "Piso";
-          if (i % 2 == 0) tipoIcono = "Bosquecillo";
-        }
+          else if(pLaberinto[i][j]==1)
+          tipoIcono="Bosquecillo";
+          else if(pLaberinto[i][j]==2)
+          tipoIcono="Carrito";
+          else if(pLaberinto[i][j]==3)
+          tipoIcono="other";
+          else if(pLaberinto[i][j]==4)
+          tipoIcono="Letal";
+          else if(pLaberinto[i][j]==5)
+          tipoIcono="Tormentoso";
+          else if(pLaberinto[i][j]==6)
+          tipoIcono="Muros";
+          else if(pLaberinto[i][j]==7)
+          tipoIcono="PuntosControl";
+        
         Casilla cuadrado = new Casilla(colorCasillas, tipoIcono);
-        tipoIcono = "Muro";
         ArregloPanelesCuadrados.add(cuadrado);
         panelTablero.add(cuadrado);
       }

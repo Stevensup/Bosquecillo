@@ -14,13 +14,13 @@ public class Casilla extends JButton {
 		// TODO Auto-generated constructor stub
 		String iconName="resources/";
 		this.setBackground(pColor);
-			if (pTipoIcono.equalsIgnoreCase("Muro") || pTipoIcono.equalsIgnoreCase("Piso") || pTipoIcono.equalsIgnoreCase("Bosquecillo") || pTipoIcono.equalsIgnoreCase("PuntoObjetivo") ) 
+			if (pTipoIcono.equalsIgnoreCase("Piso") || pTipoIcono.equalsIgnoreCase("Bosquecillo") || pTipoIcono.equalsIgnoreCase("Carrito") || pTipoIcono.equalsIgnoreCase("Letal") || pTipoIcono.equalsIgnoreCase("Tormentoso") || pTipoIcono.equalsIgnoreCase("Muros") || pTipoIcono.equalsIgnoreCase("PuntosControl") ) 
 			{
 				iconName=iconName+pTipoIcono+".png";
 			}
 		else
 			{
-				
+				iconName=iconName+"other"+".png";
 			}
 		ImageIcon icon=new ImageIcon((getClass().getResource(iconName)));
 

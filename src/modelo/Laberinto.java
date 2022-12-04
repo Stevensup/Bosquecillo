@@ -22,17 +22,19 @@ public class Laberinto {
   private int posBosquecilloY;
   //Calcula el cantidadCasillas del juego
   private int cantidadCasillas = alto * ancho;
-  //arreglo que deriva del resultado de cantidadCasillas
-  int[][] Laberinto;
   //mide la cantidad de tormentosos por dificultad facil
-
+  private int Cantidadtormentoso;
+  private int Cantidadmuros;
+  private int Cantidadletales;
+  //arreglo que deriva del resultado de cantidadCasillas
+  int[][] Laberinto = new int[alto][ancho];
 
   //Constructor
   //   @Laberinto
   public Laberinto(int palto, int pAncho, String pDificultad) {
     alto = palto;
     ancho = pAncho;
-    Laberinto = new int[alto][ancho];
+    Laberinto = new int[ancho][alto];
     //mide la cantidad de tormentosos por dificultad facil
     dificultad = (pDificultad.equals("facil")) ? 2 : 5;
     numTormentosos = cantidadCasillas * dificultad / 100;
@@ -123,7 +125,7 @@ public class Laberinto {
 }
 
   public String validadorTamaño() {
-    String mensajeTamaño="";
+    String mensajeTamaño = "";
     if (
       alto > altoMin ||
       alto <= altoMax &&
@@ -230,5 +232,8 @@ public class Laberinto {
 	}
   public int getcantidadCasillas() {
 		return cantidadCasillas;
+	}
+  public int [][] getLaberinto() {
+		return Laberinto;
 	}
 }

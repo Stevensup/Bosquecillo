@@ -41,14 +41,14 @@ public class Controlador extends KeyAdapter implements ActionListener{
 
 	public Controlador(){
 		Interfaz gui = new Interfaz();
-		String dificultad = gui.leerString("ingrese dificultad: facil o dificil");
-		int pAlto=gui.leerEntero("Ingrese la altura del tablero"); 
+		//String dificultad = gui.leerString("ingrese dificultad: facil o dificil");
 		int pAncho=gui.leerEntero("Ingrese el ancho del tablero");
-		Laberinto mapa = new Laberinto(pAlto,pAncho,dificultad);
+		int pAlto=gui.leerEntero("Ingrese la altura del tablero"); 
+		Laberinto mapa = new Laberinto(pAlto,pAncho,"dificil");
 		gui.mostrarMensaje(mapa.validadorTamaño());
 		gui.mostrarMensaje(mapa.getNumPuntosControl());
 		mapa.IncializadorLaberinto();
-		gui.crearInterfaz(pAlto,pAncho);
+		gui.crearInterfaz(pAlto,pAncho,mapa.getLaberinto());
 		
 		//Carrito carro = new Carrito(mapa.getposBosquecilloX(),mapa.getposBosquecilloY(),mapa.getcantidadCasillas());
 	}
