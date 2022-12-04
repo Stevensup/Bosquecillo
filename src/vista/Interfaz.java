@@ -18,7 +18,7 @@ import javax.swing.plaf.ColorUIResource;
 
 public class Interfaz extends JFrame implements ActionListener {
 //    public Interfaz(Controlador pControlador) {
-        /**
+    /**
 	* Atributos
 	*/
     JButton btnEmpezar,btnPuntosDeControl,btnPasosRestantes,btnHabilidades;
@@ -29,14 +29,14 @@ public class Interfaz extends JFrame implements ActionListener {
     private final ColorUIResource colorCasillas = new ColorUIResource(42, 157, 143);
     public static int ancho=10;
     public static int alto=ancho;
-
-
+/**
+*  Creación de la interfaz, con 3 paneles en malla
+*/
     public Interfaz() {
 
 
         // Especificación de los atributos de la ventana
         getContentPane().setLayout(new GridLayout(1,2));
-        //getContentPane().setLayout(new BorderLayout());
         setTitle("Bosquecillo"); 
         setSize(1200,800); 
         setLocationRelativeTo(null); 
@@ -47,12 +47,17 @@ public class Interfaz extends JFrame implements ActionListener {
         //controlador = pControlador;
 
         //Inicializacion de paneles
-        add(crearTablero(ancho,alto));
+        add(crearPanelTablero(ancho,alto));
         add(crearPanelLateral());
         setVisible(true);
         
     }
-    public JPanel crearTablero(int pAncho, int pAlto){
+/**@return panel que contiene el tablero de juego en gui
+ * @param ancho del tablero
+ * @param altura del tablero
+ */
+
+    public JPanel crearPanelTablero(int pAncho, int pAlto){
         JPanel panelTablero = new JPanel(); 
         panelTablero.setBorder(new TitledBorder("Tablero"));
         panelTablero.setLayout(new GridLayout(pAncho,pAlto));

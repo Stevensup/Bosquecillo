@@ -38,7 +38,7 @@ public class Controlador extends KeyAdapter implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         String comando = e.getActionCommand(); 
-        //@metodo para iniciar el juevo
+        //@metodo para iniciar el juego
 
         //@metodo para salir
 
