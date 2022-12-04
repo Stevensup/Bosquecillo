@@ -47,13 +47,17 @@ public class Interfaz extends JFrame implements ActionListener {
     157,
     143
   );
-  public static int ancho = 10;
-  public static int alto = ancho;
+  public static int ancho;
+  public static int alto;
 
   /**
    *  Creación de la interfaz, con 3 paneles en malla
    */
-  public Interfaz() {
+  public Interfaz() 
+  {
+
+  }
+  public void crearInterfaz(int pAncho, int pAlto) {
     // Especificación de los atributos de la ventana
     getContentPane().setLayout(new GridLayout(1, 2));
     setTitle("Bosquecillo");
@@ -61,12 +65,14 @@ public class Interfaz extends JFrame implements ActionListener {
     setLocationRelativeTo(null);
     setResizable(true);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
+    ancho=pAncho;
+    alto=pAlto;
 
     // Inicialización del atributo controlador con el controlador de la aplicación
     //controlador = pControlador;
 
     //Inicializacion de paneles
-    add(crearPanelTablero(ancho, alto));
+    add(crearPanelTablero(pAncho, pAlto));
     add(crearPanelLateral());
     setVisible(true);
   }
@@ -82,10 +88,10 @@ public class Interfaz extends JFrame implements ActionListener {
     panelTablero.setLayout(new GridLayout(pAncho, pAlto));
     panelTablero.setBackground(colorFondoTablero);
 
-    for (int i = 0; i < ancho; i++) {
+    for (int i = 0; i < pAncho; i++) {
       String tipoIcono = "Muro";
       ArrayList<Casilla> ArregloPanelesCuadrados = new ArrayList<Casilla>();
-      for (int j = 0; j < alto; j++) {
+      for (int j = 0; j < pAlto; j++) {
         if (j % 2 == 0) {
           tipoIcono = "Piso";
           if (i % 2 == 0) tipoIcono = "Bosquecillo";
@@ -187,7 +193,9 @@ public class Interfaz extends JFrame implements ActionListener {
   public void mostrarMensaje(String pMensaje) {
     JOptionPane.showMessageDialog(this, pMensaje);
   }
-
+  public void mostrarMensaje(int pMensaje) {
+    JOptionPane.showMessageDialog(this, pMensaje);
+  }
   /**
    * Obtiene un String del usuario
    */

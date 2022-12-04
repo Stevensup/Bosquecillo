@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Laberinto;
 import vista.Interfaz;
+import vista.VistaInterfaz;
 import modelo.Carrito;
 
 /**
@@ -38,14 +39,20 @@ public class Controlador extends KeyAdapter implements ActionListener{
 	
 	}
 
-	public void controlador(int pAltura, int pAncho ){
+	public Controlador(){
 		Interfaz gui = new Interfaz();
 		String dificultad = gui.leerString("ingrese dificultad: facil o dificil");
-		Laberinto mapa = new Laberinto(pAltura,pAncho,dificultad);
+		int pAlto=gui.leerEntero("Ingrese la altura del tablero"); 
+		int pAncho=gui.leerEntero("Ingrese el ancho del tablero");
+		Laberinto mapa = new Laberinto(pAlto,pAncho,dificultad);
 		gui.mostrarMensaje(mapa.validadorTamaño());
-		Carrito carro = new Carrito();
+		gui.mostrarMensaje(mapa.getNumPuntosControl());
+		mapa.IncializadorLaberinto();
+		gui.crearInterfaz(pAlto,pAncho);
+		
+		//Carrito carro = new Carrito(mapa.getposBosquecilloX(),mapa.getposBosquecilloY(),mapa.getcantidadCasillas());
 	}
-
+/**
 	public void validadorUbicacion() {
 		//posicion bosquecillo para validar
 		  if (mapa[Carrito.ubicacionXCarrito+1][Carrito.ubicacionYCarrito+1]==4) {
@@ -67,8 +74,8 @@ public class Controlador extends KeyAdapter implements ActionListener{
 			  Carrito.PasosUsados=get.PasosUsados;
 		  }
 		 }
-	}
-	}
+	*/	 
+
 	
 
     @Override

@@ -16,15 +16,12 @@ public class Carrito {
   public Carrito(
     int pubicacionXCarrito,
     int pubicacionYCarrito,
-    int pPasosIniciales,
-    int pPasosUsados,
-    int pPasosPendientes
+    int pPasosIniciales
   ) {
     ubicacionXCarrito = pubicacionXCarrito;
     ubicacionYCarrito = pubicacionYCarrito;
     PasosIniciales = pPasosIniciales;
-    PasosUsados = pPasosUsados;
-    PasosPendientes = pPasosPendientes;
+
   }
 
 
