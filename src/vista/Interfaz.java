@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+
 import java.awt.BorderLayout;
 
 import javax.swing.JButton; 
@@ -16,7 +18,7 @@ import javax.swing.plaf.ColorUIResource;
 
 public class Interfaz extends JFrame implements ActionListener {
 //    public Interfaz(Controlador pControlador) {
-        /**
+    /**
 	* Atributos
 	*/
     JButton btnEmpezar,btnPuntosDeControl,btnPasosRestantes,btnHabilidades;
@@ -27,16 +29,16 @@ public class Interfaz extends JFrame implements ActionListener {
     private final ColorUIResource colorCasillas = new ColorUIResource(42, 157, 143);
     public static int ancho=10;
     public static int alto=ancho;
-
-
+/**
+*  Creación de la interfaz, con 3 paneles en malla
+*/
     public Interfaz() {
 
 
         // Especificación de los atributos de la ventana
         getContentPane().setLayout(new GridLayout(1,2));
-        //getContentPane().setLayout(new BorderLayout());
         setTitle("Bosquecillo"); 
-        setSize(850,600); 
+        setSize(1200,800); 
         setLocationRelativeTo(null); 
         setResizable(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE); 
@@ -45,21 +47,34 @@ public class Interfaz extends JFrame implements ActionListener {
         //controlador = pControlador;
 
         //Inicializacion de paneles
-        add(crearTablero(ancho,alto));
+        add(crearPanelTablero(ancho,alto));
         add(crearPanelLateral());
         setVisible(true);
         
     }
-    public JPanel crearTablero(int pAncho, int pAlto){
+/**@return panel que contiene el tablero de juego en gui
+ * @param ancho del tablero
+ * @param altura del tablero
+ */
+
+    public JPanel crearPanelTablero(int pAncho, int pAlto){
         JPanel panelTablero = new JPanel(); 
         panelTablero.setBorder(new TitledBorder("Tablero"));
         panelTablero.setLayout(new GridLayout(pAncho,pAlto));
         panelTablero.setBackground(colorFondoTablero);
 
         for (int i = 0; i < ancho; i++) {
+            String tipoIcono="Muro";
             ArrayList<Casilla> ArregloPanelesCuadrados=new ArrayList<Casilla>();
             for (int j = 0; j < alto; j++) {
-                Casilla cuadrado = new Casilla(colorCasillas,"test");
+                if (j%2==0) 
+                {
+                    tipoIcono="Piso";
+                    if(i%2==0)
+                        tipoIcono="Bosquecillo";
+                }
+                Casilla cuadrado = new Casilla(colorCasillas,tipoIcono);
+                tipoIcono="Muro";
                 ArregloPanelesCuadrados.add(cuadrado);
                 panelTablero.add(cuadrado);
             }
@@ -80,6 +95,8 @@ public class Interfaz extends JFrame implements ActionListener {
         //panelStats.setLayout(new BoxLayout(panelStats, BoxLayout.Y_AXIS));
         panelStats.setBorder(new TitledBorder("Game Stats"));
         btnEmpezar = new JButton("Empezar");
+        ImageIcon icon=new ImageIcon("resources/piso.png");
+        btnEmpezar.setIcon(icon);
         btnEmpezar.setForeground(colorLetraBotones);
         btnEmpezar.addActionListener(this);
         btnEmpezar.setActionCommand(btnEmpezar.getText());
