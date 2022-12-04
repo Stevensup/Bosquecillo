@@ -95,19 +95,19 @@ public class Interfaz extends JFrame implements ActionListener {
         if (pLaberinto[i][j]==0) 
           tipoIcono = "Piso";
           else if(pLaberinto[i][j]==1)
-          tipoIcono="Bosquecillo";
+          tipoIcono = "Bosquecillo";
           else if(pLaberinto[i][j]==2)
-          tipoIcono="Carrito";
+          tipoIcono = "Carrito";
           else if(pLaberinto[i][j]==3)
-          tipoIcono="other";
+          tipoIcono = "Other";
           else if(pLaberinto[i][j]==4)
-          tipoIcono="Letal";
+          tipoIcono = "Letal";
           else if(pLaberinto[i][j]==5)
-          tipoIcono="Tormentoso";
+          tipoIcono = "Tormentoso";
           else if(pLaberinto[i][j]==6)
-          tipoIcono="Muros";
+          tipoIcono = "Muros";
           else if(pLaberinto[i][j]==7)
-          tipoIcono="PuntosControl";
+          tipoIcono = "PuntosControl";
         
         Casilla cuadrado = new Casilla(colorCasillas, tipoIcono);
         ArregloPanelesCuadrados.add(cuadrado);
@@ -130,8 +130,8 @@ public class Interfaz extends JFrame implements ActionListener {
     JPanel panelStats = new JPanel();
     //panelStats.setLayout(new BoxLayout(panelStats, BoxLayout.Y_AXIS));
     panelStats.setBorder(new TitledBorder("Game Stats"));
-    btnEmpezar = new JButton("Empezar");
-    ImageIcon icon = new ImageIcon("resources/piso.png");
+    btnEmpezar = new JButton("Bosquecillo");
+    ImageIcon icon = new ImageIcon("resources/"+btnEmpezar.getText());
     btnEmpezar.setIcon(icon);
     btnEmpezar.setForeground(colorLetraBotones);
     btnEmpezar.addActionListener(this);
