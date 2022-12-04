@@ -7,47 +7,61 @@ public class Laberinto {
 
   private int altura; // Recoleta dato de N
   private int ancho; //Recolecta dato de M
-  private int identificador = 5; // identificador del laberinto
-  private int tormentoso; // variable que retorna las tormentosos
-  private int letal; // variable que retorna los letales
-  private int puntosControl; //variable que toma cantidad ramdon de puntos
-  private int muros; //variable que retorna muros totales
-  private int dificultad1 = 2; //Variable que define la cantidad de tormentosos/letales en dificultad Facil
-  private int dificultad2 = 5; //Variable que define la cantidad de tormentosos/letales en dificultad Dificil
-  //Calcula el cantidadCasillas del juego
-  private int cantidadCasillas = altura * ancho;
-  //arreglo que deriva del resultado de cantidadCasillas
-  int[][] Laberinto = new int[altura][ancho];
-
-  //mide la cantidad de tormentosos por dificultad facil
-  private int CantidadtormentosoF = cantidadCasillas * dificultad1 / 100;
-  private int CantidadtormentosoD = cantidadCasillas * dificultad2 / 100;
-  private int CantidadmurosF = cantidadCasillas * dificultad1 / 50;
-  //mide la cantidad de letales por dificultad facil
-  private int CantidadletalesF = cantidadCasillas * dificultad1 / 100;
-  private int CantidadletalesD = cantidadCasillas * dificultad2 / 100;
-  private int CantidadmurosD = cantidadCasillas * dificultad2 / 50;
   private int alturaMax = 20;
   private int anchoMax = 20;
   private int alturaMin = 5;
   private int anchoMin = 5;
   private int MaxpuntosControl = 5;
   private int MinpuntosControl = 2;
+  private int identificador = 5; // identificador del laberinto
+  private int tormentoso; // variable que retorna las tormentosos
+  private int letal; // variable que retorna los letales
+  private int puntosControl; //variable que toma cantidad ramdon de puntos
+  private int muros; //variable que retorna muros totales
+  private int dificultad; //Variable que define la cantidad de tormentosos/letales en dificultad Dificil
+  //Calcula el cantidadCasillas del juego
+  private int cantidadCasillas = altura * ancho;
+  //arreglo que deriva del resultado de cantidadCasillas
+  int[][] Laberinto = new int[altura][ancho];
+  //mide la cantidad de tormentosos por dificultad facil
+  private int Cantidadtormentoso;
+  private int Cantidadmuros;
+  private int Cantidadletales;
+
+  //Constructor
+  //   @Laberinto
+  public Laberinto(int pAltura, int pAncho, String pDificultad) {
+    altura = pAltura;
+    ancho = pAncho;
+    //mide la cantidad de tormentosos por dificultad facil
+    dificultad = (pDificultad.equals("facil")) ? 2 : 5;
+    Cantidadtormentoso = cantidadCasillas * dificultad / 100;
+    Cantidadmuros = cantidadCasillas * dificultad / 50;
+    Cantidadletales = cantidadCasillas * dificultad / 100;
+  }
 
   //Validador cantidadCasillas
-  public void validadorTamaño() {
+  public String validadorTamaño() {
+    String mensajeTamaño="";
     if (
       altura > alturaMin ||
       altura <= alturaMax &&
       ancho > anchoMin ||
       ancho <= anchoMax
     ) {
-      // "se cumple"
+      mensajeTamaño =
+        "Se va a crea un mapa de " +
+        altura +
+        " de altura. Por " +
+        ancho +
+        "de Ancho. "; // "se cumple"
     } else if (altura < alturaMin || altura > alturaMax) {
-      // "Por favor validar que la altura sea minimo 5 maximo 5"
+      mensajeTamaño = "Por favor validar que la altura sea minimo 5 maximo 5";
     } else if (ancho < alturaMin || ancho > anchoMax) {
-      // "Por favor validar que el ancho sea minimo 5 y no mayor a 20"
+      mensajeTamaño =
+        "Por favor validar que el ancho sea minimo 5 y no mayor a 20";
     }
+    return mensajeTamaño;
   }
 
   public int agregarpuntosControl() {

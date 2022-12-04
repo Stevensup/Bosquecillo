@@ -12,16 +12,9 @@ public class Bosquecillo {
     private int Habilidad1, Habilidad2 , Habilidad3;
     private int Cantidad_pasos_restantes;
     private int Pasos_Consummidos;
-    
-
-    public void Contador(){
-
-    } 
-
-
-
 
     public void Bosquecillo(){
+        
 
         /**
          * Methods 
