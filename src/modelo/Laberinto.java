@@ -21,12 +21,12 @@ public class Laberinto {
   private int dificultad; //Variable que define la cantidad de tormentosos/letales en dificultad Dificil
   //Calcula el cantidadCasillas del juego
   private int cantidadCasillas = altura * ancho;
-  //arreglo que deriva del resultado de cantidadCasillas
-  int[][] Laberinto = new int[altura][ancho];
   //mide la cantidad de tormentosos por dificultad facil
   private int Cantidadtormentoso;
   private int Cantidadmuros;
   private int Cantidadletales;
+  //arreglo que deriva del resultado de cantidadCasillas
+  int[][] laberinto = new int[altura][ancho];
 
   //Constructor
   //   @Laberinto
@@ -40,9 +40,23 @@ public class Laberinto {
     Cantidadletales = cantidadCasillas * dificultad / 100;
   }
 
+  public void inicializarMapa() {
+    int randy = (int) (Math.random() * altura) - 1;
+    int randx = (int) (Math.random() * ancho) - 1;
+    // Posicion inicial de bosquecillo
+    laberinto [randx][randy]=1;
+
+    for (int j = 0; j < laberinto.; j++) {
+      for (int k = 0; k < laberinto.length; k++) 
+      {
+
+      }
+    }
+  }
+
   //Validador cantidadCasillas
   public String validadorTamaño() {
-    String mensajeTamaño="";
+    String mensajeTamaño = "";
     if (
       altura > alturaMin ||
       altura <= alturaMax &&

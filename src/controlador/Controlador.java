@@ -68,7 +68,7 @@ public class Controlador extends KeyAdapter implements ActionListener{
 		  }
 		 }
 	}
-	}
+	
 	
 
     @Override
