@@ -8,6 +8,6 @@ public class Main {
     public static void main(String[] args) {
 		//Launches the main window
     Controlador c= new Controlador();
-		VistaInterfaz gui = new VistaInterfaz();
+		//VistaInterfaz gui = new VistaInterfaz();
   }
 }

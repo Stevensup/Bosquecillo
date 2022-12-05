@@ -63,7 +63,8 @@ public class Interfaz extends JFrame implements ActionListener {
   }
   public void crearInterfaz(int pAncho, int pAlto, int[][] pLaberinto) {
     // Especificación de los atributos de la ventana
-    getContentPane().setLayout(new GridLayout(1, 2));
+    //getContentPane().setLayout(new GridLayout(1, 2));
+    getContentPane().setLayout(new BorderLayout());
     setTitle("Bosquecillo");
     setSize(1200, 800);
     setLocationRelativeTo(null);
@@ -76,8 +77,8 @@ public class Interfaz extends JFrame implements ActionListener {
     //controlador = pControlador;
 
     //Inicializacion de paneles
-    add(crearPanelTablero(pAncho, pAlto,pLaberinto));
-    add(crearPanelLateral());
+    add(crearPanelTablero(pAncho, pAlto,pLaberinto),BorderLayout.CENTER);
+    add(crearPanelLateral(),BorderLayout.SOUTH);
     setVisible(true);
   }
 
@@ -123,10 +124,9 @@ public class Interfaz extends JFrame implements ActionListener {
 
   public JPanel crearPanelLateral() {
     JPanel panelLateral = new JPanel();
-    panelLateral.setBorder(new TitledBorder("Tablero"));
-    //panelLateral.setLayout(new GridLayout(2, 1));
-    panelLateral.add(crearPanelStats());
-    //panelLateral.add(crearPanelExtra());
+    panelLateral.setLayout(new GridLayout(1, 2));
+    panelLateral.add(crearPanelStats(),BorderLayout.WEST);
+    panelLateral.add(crearPanelExtra(),BorderLayout.EAST);
     return panelLateral;
   }
 
@@ -201,9 +201,15 @@ public class Interfaz extends JFrame implements ActionListener {
   public void actionPerformed(ActionEvent e) {
     // TODO Auto-generated method stub
     String comando = e.getActionCommand();
-
-    if(comando.equals("Reglas"))
-      mostrarReglas(); 
+    switch (comando) 
+    {
+    case "Reglas":
+    mostrarReglas();
+      break;
+    case "Guardar":
+    // Guardar Estado actual
+      break;
+    }
   }
 
   /** Muestra el mensaje dado en el parámetro pMensaje
@@ -221,7 +227,6 @@ public class Interfaz extends JFrame implements ActionListener {
     String j = JOptionPane.showInputDialog(this, pMensaje);
     return j;
   }
-
   /**
    * Obtiene un entero del usuario
    */
