@@ -4,26 +4,40 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import modelo.Laberinto;
 
-public class Bosquecillo {
-    private int cantidadCasillas;
-    private int UbicacionX;
-    private int UbicacionY;
-    private int Identificador = 1;
-    private int Habilidad1, Habilidad2 , Habilidad3;
-    private int Cantidad_pasos_restantes;
-    private int Pasos_Consummidos;
+import modelo.Laberinto;
+import java.util.Scanner;
 
-    public void Bosquecillo(){
-        
+public class Bosquecillo{ 
+	Scanner sc;
+	
+	public Bosquecillo() {
+		sc = new Scanner(System.in);
 
-        /**
-         * Methods 
-        @debe recibir de la clase laberinto la cantidad de casillas(altura y ancho)
-        @dentro del arreglo de laberinto identificar posicion en arreglo 2D
-        @habilidades : ingenieselas perro ejm: pasos extra - disminucion de pasos - inmunidad
-        @movimientos en direccion paralela a la clase del Carrito  
-        @identificado de muros-bestias-puntos
-        */
+	}
+	private int Habilidad1, Habilidad2 , Habilidad3;
+    int ubicacionXBosquecillo;
+    int ubicacionYBosquecillo;
+    int PasosIniciales;
+    int identificador = 1;
+    int contadorObjetivos;
+     
+    public Bosquecillo(int ubicacionXBosquecillo, int ubicacionYBosquecillo)
+    {
+    	ubicacionXBosquecillo = ubicacionXBosquecillo;
+    	ubicacionYBosquecillo = ubicacionYBosquecillo;
+    
+	}
+    
+	public void setUbicacionXBosquecillo(int ubicacionXBosquecillo) {
+		this.ubicacionXBosquecillo = ubicacionXBosquecillo;
+	}
 
-    };
+	public int getUbicacionYBosquecillo() {
+		return ubicacionYBosquecillo;
+	}
+
+	public void setUbicacionYBosquecillo(int ubicacionYBosquecillo) {
+		this.ubicacionYBosquecillo = ubicacionYBosquecillo;
+	}
+    
 }
