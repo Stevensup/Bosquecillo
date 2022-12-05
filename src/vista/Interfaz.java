@@ -88,7 +88,7 @@ public class Interfaz extends JFrame implements ActionListener {
 
   public JPanel crearPanelTablero(int pAncho, int pAlto,int [][] pLaberinto) {
     JPanel panelTablero = new JPanel();
-    panelTablero.setBorder(new TitledBorder("Tablero"));
+    panelTablero.setBorder(new TitledBorder("Acciones"));
     panelTablero.setLayout(new GridLayout(pAncho, pAlto));
     panelTablero.setBackground(colorFondoTablero);
 
@@ -124,9 +124,9 @@ public class Interfaz extends JFrame implements ActionListener {
   public JPanel crearPanelLateral() {
     JPanel panelLateral = new JPanel();
     panelLateral.setBorder(new TitledBorder("Tablero"));
-    panelLateral.setLayout(new GridLayout(2, 1));
+    //panelLateral.setLayout(new GridLayout(2, 1));
     panelLateral.add(crearPanelStats());
-    panelLateral.add(crearPanelExtra());
+    //panelLateral.add(crearPanelExtra());
     return panelLateral;
   }
 
