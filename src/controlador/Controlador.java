@@ -64,7 +64,7 @@ public class Controlador extends KeyAdapter implements ActionListener {
     gui.mostrarMensaje(mapa.validadorTamaño());
     gui.mostrarMensaje(mapa.getNumPuntosControl());
     mapa.IncializadorLaberinto();
-    gui.crearInterfaz(pAlto, pAncho, mapa.getLaberinto());
+    gui.crearInterfaz(pAncho,pAlto, mapa.getLaberinto());
     //Carrito carro = new Carrito(mapa.getposBosquecilloX(),mapa.getposBosquecilloY(),mapa.getcantidadCasillas());
   }
 
