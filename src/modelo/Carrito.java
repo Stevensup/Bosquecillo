@@ -1,75 +1,58 @@
 package modelo;
 
-import java.util.Scanner;
 import modelo.Laberinto;
+import java.util.Scanner;
 
-public class Carrito {
+public class Carrito 
+{
 
-  int ubicacionXCarrito;
-  int ubicacionYCarrito;
-  int PasosIniciales;
-  int PasosUsados;
-  int PasosPendientes;
-  int identificador = 2;
-  int contadorObjetivos;
+    int ubicacionXCarrito;
+    int ubicacionYCarrito;
+    int PasosIniciales;
+    int identificador = 2;
+    int contadorObjetivos;
 
-  public Carrito(
-    int pubicacionXCarrito,
-    int pubicacionYCarrito,
-    int pPasosIniciales
-  ) {
-    ubicacionXCarrito = pubicacionXCarrito;
-    ubicacionYCarrito = pubicacionYCarrito;
-    PasosIniciales = pPasosIniciales;
+	
+    public Carrito(int ubicacionXCarrito, int ubicacionYCarrito, int PasosIniciales, int PasosUsados, int PasosPendientes) 
+    {
+    	ubicacionXCarrito = ubicacionXCarrito;
+    	ubicacionYCarrito = ubicacionYCarrito;
+    	PasosIniciales = PasosIniciales;
+    	PasosUsados = PasosUsados;
+    	PasosPendientes = PasosPendientes;
+	}
 
-  }
+	public void setUbicacionXCarrito(int ubicacionXCarrito) {
+		this.ubicacionXCarrito = ubicacionXCarrito;
+	}
 
+	public int getUbicacionXCarrito() {
+		return ubicacionXCarrito;
+	}
 
-  public void setUbicacionXCarrito(int ubicacionXCarrito) {
-    this.ubicacionXCarrito = ubicacionXCarrito;
-  }
+	public void setUbicacionYCarrito(int ubicacionYCarrito) {
+		this.ubicacionYCarrito = ubicacionYCarrito;
+	}
+	
+	public int getUbicacionYCarrito() {
+		return ubicacionYCarrito;
+	}
 
-  public int getUbicacionYCarrito() {
-    return ubicacionYCarrito;
-  }
+	public int getPasosIniciales(int Altura, int Ancho) {       
+		return Altura*Ancho;   
+	}
 
-  public void setUbicacionYCarrito(int ubicacionYCarrito) {
-    this.ubicacionYCarrito = ubicacionYCarrito;
-  }
+	public void setPasosIniciales(int pasosIniciales) {
+		PasosIniciales = pasosIniciales;
+	
+	}
 
-  public int getPasosIniciales(int Altura, int Ancho) {
-    return Altura * Ancho;
-  }
+	public int getContadorObjetivos() {
+		return contadorObjetivos;
+	}
 
-  public void setPasosIniciales(int pasosIniciales) {
-    PasosIniciales = pasosIniciales;
-  }
-
-  public int getPasosUsados() {
-    return PasosUsados;
-  }
-
-  public void setPasosUsados(int pasosUsados) {
-    PasosUsados = pasosUsados;
-  }
-
-  public int getPasosPendientes(int pasosIniciales, int pasosUsados) {
-    return pasosIniciales - pasosUsados;
-  }
-
-  public void setPasosPendientes(int pasosPendientes) {
-    PasosPendientes = pasosPendientes;
-  }
-
-  public int getContadorObjetivos() {
-    return contadorObjetivos;
-  }
-
-  public void setContadorObjetivos(int contadorObjetivos) {
-    this.contadorObjetivos = contadorObjetivos;
-  }
+	public void setContadorObjetivos(int contadorObjetivos) {
+		this.contadorObjetivos = contadorObjetivos;
+	}
 }
-/**
- * Methods
- * @tbd
- */
+	
