@@ -12,5 +12,6 @@ public class Main {
      * @return la interfaz del programa
      */
     Controlador c= new Controlador();
+		VistaInterfaz gui = new VistaInterfaz();
   }
 }
