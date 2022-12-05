@@ -1,6 +1,9 @@
 package vista;
 
 import java.awt.BorderLayout;
+import java.io.File; //File class
+import java.io.FileNotFoundException; //File Class exception handler
+import java.util.Scanner;// Scanner to read text files aka rules
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -12,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 import javax.swing.plaf.ColorUIResource;
 
@@ -130,7 +134,7 @@ public class Interfaz extends JFrame implements ActionListener {
     JPanel panelStats = new JPanel();
     //panelStats.setLayout(new BoxLayout(panelStats, BoxLayout.Y_AXIS));
     panelStats.setBorder(new TitledBorder("Game Stats"));
-    btnEmpezar = new JButton("Bosquecillo");
+    btnEmpezar = new JButton("Reglas");
     ImageIcon icon = new ImageIcon("resources/"+btnEmpezar.getText());
     btnEmpezar.setIcon(icon);
     btnEmpezar.setForeground(colorLetraBotones);
@@ -196,8 +200,10 @@ public class Interfaz extends JFrame implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent e) {
     // TODO Auto-generated method stub
-    //String comando = e.getActionCommand();
+    String comando = e.getActionCommand();
 
+    if(comando.equals("Reglas"))
+      mostrarReglas(); 
   }
 
   /** Muestra el mensaje dado en el parámetro pMensaje
@@ -223,5 +229,33 @@ public class Interfaz extends JFrame implements ActionListener {
     return Integer.parseInt(
       JOptionPane.showInputDialog(this, pMensaje).toString()
     );
+  }
+  public void mostrarReglas()
+  {
+    String reglas="";
+    try {
+      File archivo = new File("src/vista/resources/reglas.txt");
+      Scanner Lector = new Scanner(archivo);
+      while (Lector.hasNextLine()) 
+      {
+        reglas = reglas+Lector.nextLine();
+      }
+JFrame frame = new JFrame("Reglas de Juego Bosquecillo");
+JTextArea jArea=new JTextArea(reglas);
+jArea.setBounds(10,30, 400,300);
+jArea.setLineWrap(true);
+frame.add(jArea);
+frame.setLocationRelativeTo(null);
+frame.setResizable(true);       
+frame.setSize(450, 400);
+frame.setLayout(null);
+frame.setVisible(true);
+
+      //mostrarMensaje(reglas);
+      Lector.close();
+    } catch (FileNotFoundException e) {
+      mostrarMensaje("Occurió un error.");
+      e.printStackTrace();
+    }
   }
 }

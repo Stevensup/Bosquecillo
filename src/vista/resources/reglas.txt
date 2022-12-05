@@ -1,0 +1,19 @@
+Hola Jugador debes ayudar al bosquecillo a llevar su carrito sano y salvo 
+a traves de (Numero de objetivos) objetivo(s) en menos de (Pasos restantes) 
+pasos, para lograrlo debes evitar que el carrito colinde con las bestias 
+que hay en el camino y tratar de no a pasar entre muros pues seras penzalizado por ello.
+
+Bestias:
+
+Si en tu camino por el laberinto la casilla donde esta el carrito 
+limita con una bestia recibiras una penalización dependiendo del tipo 
+de bestia que te encuentres.
+
+El Asesino Letal: Cuyo color es (Asigne color) es muy peligroso, 
+si te encuentras con el perderas inmediatamente  el juego. Se muy cuidadoso.
+
+El Tormentoso: Cuyo color es (Asigne color) diminuira tus pasos restantes en 5%.
+
+
+Muros: Si pasas entre 2 muros recibiras una penalización equivalente a las 
+coordenadas en la que se encuentra el bosquesillo
