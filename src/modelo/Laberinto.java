@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Laberinto {
-
+  
   private int alto; // Recoleta dato de N
   private int ancho; //Recolecta dato de M
   private int altoMax = 20;

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Carrito 
 {
 	/*
-   * @autor sebastian camacho
+   * @autor Juan Ochoa
    * @param recibe los valores de posicion de carrito - recibimos cantidad de pasos  , identificador del carrito - contador de objetivos en la gui
    * @return valor de la ubicacion en el arreglo , calcula el valor de pasos y objetivos
    */
@@ -18,7 +18,7 @@ public class Carrito
 
 	
     	 /*
-		* @author sebastian camacho
+		* @author Juan Ochoa
 		@param recibe los valores de la ubicacion carrito
 		@return la posicion en el arreglo [][], pasos inicil, usado y pendientes
 		   Contructor carrito
@@ -32,7 +32,7 @@ public class Carrito
 	}
 
 	/*
-	 * @author Sebastian Ochoa
+	 * @author Juan Ochoa
 	 * @param retoma el valor en la posicion indicada
 	 * @return retorna el valor del mismo al controlador
 	 */
@@ -41,7 +41,7 @@ public class Carrito
 	}
 
 	/*
-	 * @author Sebastian Ochoa
+	 * @author Juan Ochoa
 	 * @param retoma el valor en la posicion indicada
 	 * @return retorna el valor del mismo al controlador
 	 */
@@ -50,7 +50,7 @@ public class Carrito
 	}
 
 	/*
-	 * @author Sebastian Ochoa
+	 * @author Juan Ochoa
 	 * @param retoma el valor en la posicion indicada
 	 * @return retorna el valor del mismo al controlador
 	 */
@@ -59,7 +59,7 @@ public class Carrito
 	}
 	
 	/*
-	 * @author Sebastian Ochoa
+	 * @author Juan Ochoa
 	 * @param retoma el valor en la posicion indicada
 	 * @return retorna el valor del mismo al controlador
 	 */
@@ -68,7 +68,7 @@ public class Carrito
 	}
 
 	/*
-	 * @author Sebastian Ochoa
+	 * @author Juan Ochoa
 	 * @param retoma el valor en la posicion indicada
 	 * @return retorna el valor del mismo al controlador
 	 */
@@ -77,7 +77,7 @@ public class Carrito
 	}
 
 	/*
-	 * @author Sebastian Ochoa
+	 * @author Juan Ochoa
 	 * @param retoma el valor en la posicion indicada
 	 * @return retorna el valor del mismo al controlador
 	 */
@@ -87,7 +87,7 @@ public class Carrito
 	}
 
 	/*
-	 * @author Sebastian Ochoa
+	 * @author Juan Ochoa
 	 * @param retoma el valor en la posicion indicada
 	 * @return retorna el valor del mismo al controlador
 	 */
@@ -96,7 +96,7 @@ public class Carrito
 	}
 
 	/*
-	 * @author Sebastian Ochoa
+	 * @author Juan Ochoa
 	 * @param retoma el valor en la posicion indicada
 	 * @return retorna el valor del mismo al controlador
 	 */
